@@ -111,10 +111,15 @@ preorder (Bin i r d) = [r] ++ preorder i ++ preorder d
  
 agregarNodoIzq :: AB a -> AB a -> AB a
 agregarNodoIzq Nil Nil = Nil
-agregarNodoIzq (Bin i r d) Nil = if defIgualdad i Nil then (Bin (Nil) r d) else agregarNodoIzq  i Nil 
-
+agregarNodoIzq (Bin i r d) a = if defIgualdad i Nil then (Bin a r d) else agregarNodoIzq  i a 
 -- viajeAUltimoNodoIzq
 --     i == Nil
 defIgualdad :: AB a -> AB a-> Bool
 defIgualdad Nil Nil = True
 defIgualdad a b = False
+
+-- EJERCICIO PRODUCTOAB , DADO UN ARBOL , CALCULA EL PRODUCTO DE SUS NODOS
+
+productoAB :: AB Int -> Int
+productoAB Nil = 1
+productoAB (Bin i r d) = r * productoAB i * productoAB d
