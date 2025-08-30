@@ -111,7 +111,8 @@ preorder (Bin i r d) = [r] ++ preorder i ++ preorder d
  
 agregarNodoIzq :: AB a -> AB a -> AB a
 agregarNodoIzq Nil Nil = Nil
-agregarNodoIzq (Bin i r d) a = if defIgualdad i Nil then (Bin a r d) else agregarNodoIzq  i a 
+agregarNodoIzq (Bin i r d) a = if defIgualdad i Nil then (Bin a r d) else (Bin (agregarNodoIzq i a) r d) 
+
 -- viajeAUltimoNodoIzq
 --     i == Nil
 defIgualdad :: AB a -> AB a-> Bool
@@ -123,3 +124,15 @@ defIgualdad a b = False
 productoAB :: AB Int -> Int
 productoAB Nil = 1
 productoAB (Bin i r d) = r * productoAB i * productoAB d
+
+-- arbol :: AB Int
+arbol = Bin( Bin Nil 1 Nil) 3 (Bin Nil 3 Nil)
+
+arbol2 = Bin Nil 10 Nil
+
+--  que dado un árbol de booleanos construye otro formado por la negación de cada uno de los nodos.
+negacionAB :: AB Bool -> AB Bool
+negacionAB Nil = Nil
+negacionAB (Bin i r d) = (Bin (negacionAB i) (not r) (negacionAB d))
+
+arbol3 = Bin Nil True Nil
