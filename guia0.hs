@@ -136,3 +136,4 @@ negacionAB Nil = Nil
 negacionAB (Bin i r d) = (Bin (negacionAB i) (not r) (negacionAB d))
 
 arbol3 = Bin Nil True Nil
+-- hola
