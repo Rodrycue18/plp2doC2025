@@ -39,3 +39,14 @@ map1 f = foldr (\x rec-> (f x) : rec ) []
 -- EJ 2
 -- De nir la función mejorSegún :: (a-> a-> Bool)-> [a]-> a, que devuelve el máximo elemento
 -- de la lista según una función de comparación, utilizando foldr1. Por ejemplo, maximum = mejorSegún (>).
+
+
+
+
+--  Definir la función sumasParciales :: Num a => [a]-> [a], que dada una lista de números devuelve
+--  otra de la misma longitud, que tiene en cada posición la suma parcial de los elementos de la lista original
+--  desde la cabeza hasta la posición actual. Por ejemplo, sumasParciales [1,4,-1,0,5] 
+-- [1,5,4,4,9].
+
+-- sumasParciales :: Num a => [a]->[a]
+-- sumasParciales = foldl (\x rec -> )
